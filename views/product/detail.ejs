@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+<div
+  style="
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  "
+>
+  <h1 style="text-align: center; color: #333"><%= product.name %></h1>
+  <div style="text-align: center; margin: 20px 0">
+    <img
+      src="/uploads/<%= product.image %>"
+      style="
+        max-width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 8px;
+      "
+    />
+  </div>
+  <p style="font-size: 18px; color: #666; text-align: center">
+    <strong>Category:</strong> <%= product.category ? product.category.name :
+    'N/A' %>
+  </p>
+  <div style="margin-top: 20px; line-height: 1.6">
+    <p><%= product.description %></p>
+  </div>
+  <div style="text-align: center; margin-top: 30px">
+    <a
+      href="/"
+      style="
+        background-color: #2196f3;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+      "
+      >Back to Home</a
+    >
+  </div>
+</div>
+<%- include('../partials/footer') %>

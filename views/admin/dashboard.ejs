@@ -1,0 +1,61 @@
+<%- include('../partials/header') %>
+<div
+  style="max-width: 800px; margin: 20px auto; padding: 20px; text-align: center"
+>
+  <h1 style="color: #333">Admin Dashboard</h1>
+
+  <div style="display: flex; justify-content: space-around; margin: 40px 0">
+    <div
+      style="
+        background-color: #f0f0f0;
+        padding: 20px;
+        border-radius: 8px;
+        width: 200px;
+      "
+    >
+      <h2 style="color: #4caf50; margin: 0"><%= totalProducts %></h2>
+      <p style="margin: 5px 0 0 0">Total Products</p>
+    </div>
+    <div
+      style="
+        background-color: #f0f0f0;
+        padding: 20px;
+        border-radius: 8px;
+        width: 200px;
+      "
+    >
+      <h2 style="color: #2196f3; margin: 0"><%= totalCategories %></h2>
+      <p style="margin: 5px 0 0 0">Total Categories</p>
+    </div>
+  </div>
+
+  <nav style="margin-top: 40px">
+    <a
+      href="/admin/products"
+      style="
+        background-color: #4caf50;
+        color: white;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin: 0 10px;
+        display: inline-block;
+      "
+      >Product Listing</a
+    >
+    <a
+      href="/admin/categories"
+      style="
+        background-color: #2196f3;
+        color: white;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin: 0 10px;
+        display: inline-block;
+      "
+      >Category Listing</a
+    >
+  </nav>
+</div>
+<%- include('../partials/footer') %>

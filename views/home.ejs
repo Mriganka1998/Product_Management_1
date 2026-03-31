@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+<div style="max-width: 1200px; margin: 20px auto; padding: 20px;">
+  <h1 style="text-align: center; color: #333;">Product Listing</h1>
+
+  <form method="GET" style="text-align: center; margin-bottom: 30px; padding: 20px; background-color: #f9f9f9; border-radius: 8px;">
+    <label for="category" style="margin-right: 10px;">Filter by Category:</label>
+    <select id="category" name="category" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-right: 20px;">
+      <option value="">All</option>
+      <% categories.forEach(function(cat) { %>
+        <option value="<%= cat._id %>" <%= selectedCategory == cat._id ? 'selected' : '' %>><%= cat.name %></option>
+      <% }) %>
+    </select>
+    <label for="search" style="margin-right: 10px;">Search:</label>
+    <input type="text" id="search" name="search" value="<%= search || '' %>" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-right: 10px;" placeholder="Search products..." />
+    <button type="submit" style="background-color: #4CAF50; color: white; padding: 8px 20px; border: none; border-radius: 4px; cursor: pointer;">Filter</button>
+  </form>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+    <% products.forEach(function(product) { %>
+      <div style="border: 1px solid #ddd; border-radius: 8px; padding: 15px; width: calc(33.333% - 20px); box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        <img src="/uploads/<%= product.image %>" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px;" />
+        <h3 style="margin: 10px 0;"><a href="/product/<%= product.slug %>" style="color: #333; text-decoration: none;"><%= product.name %></a></h3>
+        <p style="color: #666; margin: 5px 0;">Category: <%= product.category ? product.category.name : 'N/A' %></p>
+        <p style="color: #777;"><%= product.description.substring(0, 100) %></p>
+      </div>
+    <% }) %>
+  </div>
+</div>
+<%- include('partials/footer') %>

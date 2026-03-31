@@ -1,0 +1,29 @@
+<%- include('../../partials/header') %>
+<div style="max-width: 800px; margin: 20px auto; padding: 20px;">
+  <h2>Category List</h2>
+  <a href="/admin/categories/add" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-bottom: 20px; display: inline-block;">Add Category</a>
+  <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+    <thead>
+      <tr style="background-color: #f2f2f2;">
+        <th style="border: 1px solid #ddd; padding: 12px; text-align: left;">Name</th>
+        <th style="border: 1px solid #ddd; padding: 12px; text-align: left;">Slug</th>
+        <th style="border: 1px solid #ddd; padding: 12px; text-align: left;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% categories.forEach(function(category) { %>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 12px;"><%= category.name %></td>
+          <td style="border: 1px solid #ddd; padding: 12px;"><%= category.slug %></td>
+          <td style="border: 1px solid #ddd; padding: 12px;">
+            <a href="/admin/categories/edit/<%= category._id %>" style="color: #2196F3; text-decoration: none; margin-right: 10px;">Edit</a>
+            <form action="/admin/categories/delete/<%= category._id %>" method="POST" style="display:inline;">
+              <button type="submit" onclick="return confirm('Delete this category?')" style="background-color: #f44336; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<%- include('../../partials/footer') %>
